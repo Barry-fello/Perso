@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component} from '@angular/core';
 import { POKEMONS } from './list-pokemon';
 import { Pokemon } from './pokemon';
 
@@ -7,8 +7,8 @@ import { Pokemon } from './pokemon';
   templateUrl: `app.component.html`
 
 })
-export class AppComponent implements OnInit {
-  pokemonList : Pokemon [] = POKEMONS
+export class AppComponent /*implements OnInit */{
+  /*pokemonList : Pokemon [] = POKEMONS
   pokemonSelected : Pokemon |undefined;
 
   ngOnInit(){
@@ -28,5 +28,5 @@ export class AppComponent implements OnInit {
 
     }
     
-  }
+  }*/
 }
