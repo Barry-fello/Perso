@@ -1,11 +1,11 @@
 import { Component} from '@angular/core';
-import { POKEMONS } from './list-pokemon';
-import { Pokemon } from './pokemon';
+import { POKEMONS } from './pokemon/list-pokemon';
+import { Pokemon } from './pokemon/pokemon';
 
 @Component({
   selector: 'app-root',
   templateUrl: `app.component.html`
-  
+
 })
 export class AppComponent /*implements OnInit */{
   /*pokemonList : Pokemon [] = POKEMONS
