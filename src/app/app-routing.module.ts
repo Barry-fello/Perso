@@ -8,7 +8,7 @@ const routes: Routes = [
   {path:'pokemons', component: ListPokemonComponent},
   {path:'pokemon/:id', component: InfoPokemonComponent},
   {path: '', redirectTo:'pokemons', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
+  //{path: '**', component: PageNotFoundComponent} A voir pourquoi il recupère le chemin fils 
 ];
 
 @NgModule({
