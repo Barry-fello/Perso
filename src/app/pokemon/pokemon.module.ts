@@ -11,6 +11,7 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { CreatePokemonComponent } from './create-pokemon/create-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 const PokemonRoutes: Routes = [
@@ -33,6 +34,7 @@ const PokemonRoutes: Routes = [
     EditPokemonComponent,
     CreatePokemonComponent,
     SearchPokemonComponent,
+    LoaderComponent,
     
   ],
   imports: [
