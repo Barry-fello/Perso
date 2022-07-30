@@ -11,8 +11,9 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonFormComponent implements OnInit {
   //Definition d'une proprieté d'entrée (un contrat d'interface dans ce composant)
-  @Input() pokemon!: Pokemon;
+  @Input() pokemon: Pokemon;
   types: string[];
+  isCreated: boolean;
 
   //Injection des services (PokemonService et Router)
   constructor(private pokemonService: PokemonService,
@@ -20,6 +21,7 @@ export class PokemonFormComponent implements OnInit {
 
   ngOnInit() {
     this.types = this.pokemonService.getPokemonTypeList();
+    this.isCreated = this.router.url.includes('create');
   }
 // Methode pour verifier si le type du pokemon passé en parametre existe
   hasType(type: string): boolean{
@@ -50,17 +52,23 @@ export class PokemonFormComponent implements OnInit {
       return false;
 
     }
-  
+   
     return true;
   }
-  annuler(pokemon: Pokemon){
+  /*annuler(pokemon: Pokemon){
     this.router.navigate(['/pokemon/:id',pokemon.id]);
-
-  }
+ 
+  }*/
   //Message pour dire que le choix est soumis avec une redirection vers le pokemon caucher
   onSubmit(){
-    console.log('submit form !');
-    this.router.navigate(['/pokemon',this.pokemon.id]);
+    //console.log('submit form !');
+    if(this.isCreated){
+      this.pokemonService.createPokemon(this.pokemon)
+        .subscribe((pokemon: Pokemon) => this.router.navigate(['/pokemon/create',pokemon.id]));   
+    }else{
+      this.pokemonService.updatePokememon(this.pokemon)
+    .subscribe(() => this.router.navigate(['/pokemon',this.pokemon.id]));
+    }
+    
   }
-
 }

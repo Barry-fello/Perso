@@ -17,6 +17,20 @@
                   Le nom du pokémon est requis (1-25).
             </div>
           </div>
+
+              <!-- Pokemon picture-->
+              <div *ngIf="isCreated" class="form-group">
+                <label for="picture">Image</label>
+                <input type="url" class="form-control" id="picture"
+                        required
+                    
+                       [(ngModel)]="pokemon.picture" name="picture"
+                       #picture="ngModel">
+                <div [hidden]="picture.valid || picture.pristine"
+                      class="card-panel red accent-1">
+                      La photo du Pokemon est requise
+                </div>
+              </div> 
     
           <!-- Pokemon hp -->
           <div class="form-group">
@@ -31,6 +45,8 @@
                    Les points de vie du pokémon sont compris entre 0 et 999.
              </div>
           </div>
+
+          
     
           <!-- Pokemon cp -->
           <div class="form-group">
@@ -74,7 +90,7 @@
               class="waves-effect waves-light btn"
               [disabled]="!pokemonForm.form.valid">
               Valider</button>
-              <button class="buttn" (click)="annuler(pokemon)">Annuler</button>
+             <!-- <button class="buttn" (click)="annuler(pokemon)">Annuler</button>-->
           </div>
     
         </div>
